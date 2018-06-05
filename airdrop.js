@@ -35,14 +35,14 @@ async function asyncForEach(array, callback) {
     
 }
 
-async function transferToken(walletAddress, amount) {
+function transferToken(walletAddress, amount) {
     return new Promise(async(resolve, reject) => {
         try {
             
             var balance = await contractObj.methods.balanceOf(address).call();
-            console.log("=======balance",balance)
-            //var finalToken = web3.utils.toWei(amount, 'ether');
-            var finalToken = amount;
+            // balance = web3.utils.fromWei(balance,'ether');
+            console.log("=======balance before sending ==============",balance)
+            var finalToken = amount*1e+18;
             if (+balance < +finalToken) {
                 resolve([null, ENOUGH_TOKEN]);
             } else {
@@ -53,7 +53,6 @@ async function transferToken(walletAddress, amount) {
                      sentObject['token'] = amount;
                      sentLogs.push(sentObject);
                 })
-
             }
         } catch (e) {
             reject(e);
@@ -131,7 +130,6 @@ web3.eth.net.isListening(function (err, res) {
 
 
 
-let amount = '10';
 async function init() {
     try {
         console.log('Started')
