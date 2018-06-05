@@ -39,7 +39,7 @@ async function asyncForEach(array, callback) {
     
 }
 
-async function transferToken(walletAddress, amount) {
+function transferToken(walletAddress, amount) {
     return new Promise(async(resolve, reject) => {
         try {
             
