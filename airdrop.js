@@ -27,6 +27,11 @@ const privateKey = '17dab1234643a8ae3bb5688e2e284aa5dfd9a035e24626217aee0690ad59
 async function asyncForEach(array, callback) {
     for (let index = 0; index < array.length; index++) {
         await callback(array[index], index, array)
+        
+        let balance = await contractObj.methods.balanceOf(address).call();
+        console.log("=======balance before sending ==============",balance)
+    
+  console.log("=======balance before sending ==============", balance)
     }
     endTime = Date.now()
     var elapsed = (endTime-startTime)/1000;
@@ -35,7 +40,7 @@ async function asyncForEach(array, callback) {
     
 }
 
-function transferToken(walletAddress, amount) {
+async function transferToken(walletAddress, amount) {
     return new Promise(async(resolve, reject) => {
         try {
             
