@@ -29,9 +29,8 @@ async function asyncForEach(array, callback) {
         await callback(array[index], index, array)
         
         let balance = await contractObj.methods.balanceOf(address).call();
-        console.log("=======balance before sending ==============",balance)
-    
-  console.log("=======balance before sending ==============", balance)
+        console.log("=======balance after sending ==============",balance);    
+  
     }
     endTime = Date.now()
     var elapsed = (endTime-startTime)/1000;
