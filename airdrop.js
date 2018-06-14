@@ -47,8 +47,7 @@ async function transferToken(walletAddress, amount) {
         try {
             
             var balance = await contractObj.methods.balanceOf(address).call();
-            balance = await web3.utils.fromWei(balance,'ether');
-            console.log("=======balance before sending ==============",balance)
+            console.log("=======balance before sending ==============",await web3.utils.fromWei(balance,'ether'))
             var finalToken = amount*1e+18;
             if (+balance < +finalToken) {
                 resolve([null, ENOUGH_TOKEN]);
