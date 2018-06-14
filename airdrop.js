@@ -172,7 +172,7 @@ function readFile() {
           if(isAddress && data[0]!=null && data[0]!='' ){
             console.log(data[0]);
 
-            data[1] = parseInt(data[1]);
+            data[1] = parseFloat(data[1]);
             if(data[1]!='' && data[1]!=null && data[1]>0){
                     console.log(data[1]);            
                     mapObject['address'] = data[0];
