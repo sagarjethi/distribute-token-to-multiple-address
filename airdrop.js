@@ -32,7 +32,7 @@ async function asyncForEach(array, callback) {
         await callback(array[index], index, array)
         
         let balance = await contractObj.methods.balanceOf(address).call();
-        console.log("=======balance after sending ==============",balance);    
+        console.log("=======balance after sending ==============",await web3.utils.fromWei(balance,'ether'));    
   
     }
     endTime = Date.now()
@@ -47,7 +47,7 @@ async function transferToken(walletAddress, amount) {
         try {
             
             var balance = await contractObj.methods.balanceOf(address).call();
-            // balance = web3.utils.fromWei(balance,'ether');
+            balance = await web3.utils.fromWei(balance,'ether');
             console.log("=======balance before sending ==============",balance)
             var finalToken = amount*1e+18;
             if (+balance < +finalToken) {

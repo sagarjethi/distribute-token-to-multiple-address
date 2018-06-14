@@ -20,7 +20,7 @@ $ npm init
 $ npm install bignumber.js csv-write-stream ethereumjs-tx fast-csv web3@1.0.0-beta.34  --save
 
  
-Changes to Made in the Script :
+Changes to be Made in the Script :
 I have commented *//change this* all the lines where changes needs to be done. 
 
 Change the URL in lineNo:8 where your Token contract has been deployed. 
